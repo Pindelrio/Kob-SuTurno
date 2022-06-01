@@ -1,0 +1,7 @@
+{"repertorie": [
+   {"id":1,"name":"la patata","active":false},
+   {"id":2,"name":"la patata1","active":false},
+   {"id":3,"name":"la patata2","active":false},
+   {"id":4,"name":"la patata3","active":true}
+]
+}

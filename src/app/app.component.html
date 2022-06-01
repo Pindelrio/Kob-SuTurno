@@ -1,0 +1,35 @@
+<div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <a href="#" class="navbar-brand"><img src="../assets/KOBLogo.png" alt="KaraokesBand"></a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item" routerLink="list" routerLinkActive="active">
+          <a href="javascript:void(0)" class="nav-link">List of Repertorie</a>
+        </li>
+        <li class="nav-item" routerLink="create" routerLinkActive="active">
+          <a href="javascript:void(0)" class="nav-link">Add a Song</a>
+        </li>
+        <li class="nav-item" routerLink="next" routerLinkActive="active">
+            <a href="javascript:void(0)" class="nav-link">Next Song</a>
+          </li>
+      </div>
+    </nav>
+    <!-- Navigation -->
+
+    <!-- Container -->
+    <div class="container mt-5">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- Container -->
+</div>
+<br> <br>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 Copyright:
+    <a class="text-reset fw-bold" href="https://pindelrio.com/">Pindelrio.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

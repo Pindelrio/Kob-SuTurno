@@ -1,0 +1,36 @@
+<div align='center'><h1>Repertorie</h1></div>
+
+
+<div style="width: 500px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!isSongAdded">
+
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" id="id" required [(ngModel)]="song.id" name="id"/>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="song.name" name="name"/>
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <input type="text" class="form-control" id="comments" required [(ngModel)]="song.comments" name="comments" />
+      </div>
+
+      <div class="form-group">
+        <label for="active">Active</label>
+        <input type="checkbox" class="form-control" id="active" required [(ngModel)]="song.active" name="active" />
+      </div>
+
+      <button (click)="addSong()" class="btn btn-success">Create</button>
+    </div>
+
+    <div *ngIf="isSongAdded">
+      <h3>New song added!</h3>
+      <button class="btn btn-success" (click)="newSong()"> + Add More</button>
+    </div>
+  </div>
+</div>
