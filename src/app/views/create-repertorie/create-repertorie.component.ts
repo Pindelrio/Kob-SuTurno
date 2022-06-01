@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { song } from 'src/app/Models/song';
+import { ISong } from 'src/app/Models/song';
 import { RepertorieService } from 'src/app/Services/repertorie.service';
 
 @Component({
@@ -10,12 +10,11 @@ import { RepertorieService } from 'src/app/Services/repertorie.service';
 export class CreateRepertorieComponent implements OnInit {
   
   //Vars
-  public song: song;
+  public song: ISong = <ISong>{};
   isSongAdded = false;
 
   //Constructor
   constructor(private reperService: RepertorieService){
-    this.song = new song('','','',false);
   }
 
   //Methods

@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { ISong } from '../Models/song';
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +59,8 @@ export class RepertorieService {
   }
 
   // Search By Active
-  filterByActive(active: any): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/?active=${active}`).pipe(
+  filterByActive(active: any): Observable<ISong[]> {
+    return this.httpClient.get<ISong[]>(`${this.apiUrl}/?active=${active}`).pipe(
       catchError(this.handleError)
     );
   }

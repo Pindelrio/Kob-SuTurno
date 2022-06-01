@@ -1,8 +1,6 @@
-export class song{
-    constructor(
-    public id:string,
-    public name:string,
-    public comments:string,
-    public active:boolean
-    ){}
+export interface ISong{
+    id: string;
+    name:string;
+    comments:string;
+    active:boolean;
 }

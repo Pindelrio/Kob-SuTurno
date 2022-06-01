@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RepertorieService } from 'src/app/Services/repertorie.service';
-import {song} from 'src/app/Models/song';
+import { ISong } from 'src/app/Models/song';
 
 @Component({
   selector: 'app-list-repertorie',
@@ -9,11 +9,11 @@ import {song} from 'src/app/Models/song';
 })
 export class ListRepertorieComponent implements OnInit {
 
-  songs: any;
-  currentSong:any;
+  songs: ISong[] = [];
+  currentSong:ISong = <ISong>{};
   currentIndex = -1;
   searchTitle = '';
-
+  
   constructor(private reperService: RepertorieService) { }
 
   ngOnInit(): void {
@@ -22,8 +22,7 @@ export class ListRepertorieComponent implements OnInit {
 
   // Get list
   getAllSongs(): void {
-    this.reperService.list()
-      .subscribe(
+    this.reperService.list().subscribe(
         (songs: any) => {
           this.songs = songs;
         },
@@ -49,29 +48,35 @@ export class ListRepertorieComponent implements OnInit {
     this.ngOnInit();
   }
   // Active item
-  activeSong(song:song){
-    // var oldSongs = this.reperService.filterByActive(true);
-    // oldSongs.subscribe(data=>{
+  activeSong(song:ISong){
 
-    //   console.log(data);
-    // });
-
-      // this.reperService.update(data.id, data).subscribe(
-      //   response =>{
-      //     console.log(response);
-      //   },
-      //   error =>{
-      //     console.log(error);
-      //   }
-      // );
-
-      this.reperService.update(song.id, song).subscribe(
+    song.active = true;
+    console.log(song);
+    this.reperService.filterByActive(true).subscribe(
       response =>{
-        console.log(response);
-      },
-      error =>{
-        console.log(error);
-      }
-      );
+        response.forEach(data=>{
+          
+            //Update to active false
+            data.active = false;
+            this.reperService.update(data.id, data).subscribe
+            ({
+                error: (e) => console.error(e),
+                complete: () =>{
+
+                  //Update current song
+                  this.reperService.update(song.id, song).subscribe({
+                    next: (v) => console.log(v),
+                    error: (e) => console.error(e),
+                    complete: () => {
+                      console.info('complete');
+                      //refresh page
+                      window.location.reload();
+                    }
+                  });
+                }
+            });
+          })
+      });
+    
   }
 }

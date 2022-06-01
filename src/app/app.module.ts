@@ -9,6 +9,7 @@ import { CreateRepertorieComponent } from './views/create-repertorie/create-repe
 import { ListRepertorieComponent } from './views/list-repertorie/list-repertorie.component';
 import { NextSongComponent } from './views/next-song/next-song.component';
 import { DetailRepertorieComponent } from './views/detail-repertorie/detail-repertorie.component';
+import { ConfigComponent } from './views/config/config.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetailRepertorieComponent } from './views/detail-repertorie/detail-repe
     CreateRepertorieComponent,
     ListRepertorieComponent,
     NextSongComponent,
-    DetailRepertorieComponent
+    DetailRepertorieComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
