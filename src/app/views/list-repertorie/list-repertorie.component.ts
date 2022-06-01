@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RepertorieService } from 'src/app/Services/repertorie.service';
 import { ISong } from 'src/app/Models/song';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-repertorie',
@@ -14,7 +15,10 @@ export class ListRepertorieComponent implements OnInit {
   currentIndex = -1;
   searchTitle = '';
   
-  constructor(private reperService: RepertorieService) { }
+  constructor(
+    private reperService: RepertorieService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.getAllSongs();
@@ -69,8 +73,9 @@ export class ListRepertorieComponent implements OnInit {
                     error: (e) => console.error(e),
                     complete: () => {
                       console.info('complete');
+
                       //refresh page
-                      window.location.reload();
+                      this.ngOnInit();
                     }
                   });
                 }
