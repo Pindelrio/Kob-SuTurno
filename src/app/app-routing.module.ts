@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"list", component: ListRepertorieComponent},
   {path:"create", component: CreateRepertorieComponent},
   {path:"repertorie/:id", component: DetailRepertorieComponent },
-  {path:"next", component: NextSongComponent}
+  {path:"next", component: NextSongComponent},
   {path:"config", component: ConfigComponent}
 ]
 @NgModule({
