@@ -19,7 +19,7 @@ export class RepertorieService {
 
   // Show lists of item
   list(): Observable<any> {
-    return this.httpClient.get(this.apiUrl).pipe(
+    return this.httpClient.get(`${this.apiUrl}/?sortBy=number`).pipe(
       catchError(this.handleError)
     );
   }
@@ -52,7 +52,7 @@ export class RepertorieService {
   }
 
   // Search By Name
-  filterByTitle(title: any): Observable<any> {
+  filterByName(title: any): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/?name=${title}`).pipe(
       catchError(this.handleError)
     );

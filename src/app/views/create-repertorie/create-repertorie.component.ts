@@ -25,7 +25,8 @@ export class CreateRepertorieComponent implements OnInit {
     const data = {
       id: this.song.id,
       name: this.song.name,
-      active: this.song.active,
+      number: this.song.number,
+      active: false,
       comments: this.song.comments
     };
     if (!data.name) {
@@ -42,13 +43,15 @@ export class CreateRepertorieComponent implements OnInit {
         error => {
           console.log(error);
         });
+    this.newSong();
   }
 
   // Reset on adding new
   newSong(): void {
     this.isSongAdded = false;
     this.song = {
-      id: '',
+      id: 0,
+      number: 0,
       name:'',
       comments:'',
       active: false

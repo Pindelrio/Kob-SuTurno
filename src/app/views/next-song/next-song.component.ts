@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ISong } from 'src/app/Models/song';
 import { RepertorieService } from 'src/app/Services/repertorie.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RepertorieService } from 'src/app/Services/repertorie.service';
 export class NextSongComponent implements OnInit {
 
   //vars
-  nextSongs: any;
+  nextSongs: ISong[] = [];
   interval: any;
   
   //constructor

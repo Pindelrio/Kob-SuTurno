@@ -1,5 +1,6 @@
 export interface ISong{
-    id: string;
+    id: number;
+    number:number;
     name:string;
     comments:string;
     active:boolean;

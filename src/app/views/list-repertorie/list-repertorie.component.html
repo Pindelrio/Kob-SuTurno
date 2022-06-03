@@ -1,12 +1,12 @@
 <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-4">
-        <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="searchTitle" />
+        <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="searchName" />
         <div class="input-group-append">
           <button class="btn btn-outline-secondary border-left-0 border" type="button" (click)="clearList()">X
               <i class="fa fa-times"></i>
           </button>
-          <button class="btn btn-outline-secondary" type="button" (click)="searchByTitle()">
+          <button class="btn btn-outline-secondary" type="button" (click)="searchByName()">
             Search
           </button>
         </div>
@@ -22,18 +22,16 @@
             <th scope="col">Name</th>
             <th scope="col">Comments</th>
             <th scope="col">Active</th>
-            <th scope="col" style="min-width: 150px;">Action</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let song of songs;">
-            <th scope="row">{{song.id}}</th>
+          <tr *ngFor="let song of songsList;">
+            <th scope="row">{{song.number}}</th>
             <td><b>{{song.name}}</b></td>
             <td><b>{{song.comments}}</b></td>
             <td><input type="checkbox" class="form-group"  [(ngModel)]="song.active" (change)="activeSong(song)" /></td>
-            <!-- <td>{{song.active}}</td> -->
             <td>
-              <!-- <button type="button" class="btn btn-danger" (click)="activeSong(song)">Active</button> -->
               <button type="button" class="btn btn-info" routerLink="/repertorie/{{song.id}}">Edit</button>
             </td>
           </tr>

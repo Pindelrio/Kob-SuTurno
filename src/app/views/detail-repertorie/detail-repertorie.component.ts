@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ISong } from 'src/app/Models/song';
 import { RepertorieService } from 'src/app/Services/repertorie.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { RepertorieService } from 'src/app/Services/repertorie.service';
 })
 export class DetailRepertorieComponent implements OnInit {
 
-  currentSong: any;
+  currentSong: ISong = <ISong>{};
   message = '';
 
   constructor(
@@ -26,31 +27,11 @@ export class DetailRepertorieComponent implements OnInit {
   getSong(id: string | null): void {
     this.reperService.getItem(id)
       .subscribe(
-        (song: null) => {
+        (song) => {
           this.currentSong = song;
           console.log(song);
         },
-        (error: any) => {
-          console.log(error);
-        });
-  }
-
-  setAvailableStatus(status: any): void {
-    const data = {
-      id: this.currentSong.id,
-      name: this.currentSong.name,
-      active: this.currentSong.active,
-      comments: this.currentSong.comments,
-      available: status
-    };
-
-    this.reperService.update(this.currentSong.id, data)
-      .subscribe(
-        response => {
-          this.currentSong.available = status;
-          console.log(response);
-        },
-        error => {
+        (error) => {
           console.log(error);
         });
   }

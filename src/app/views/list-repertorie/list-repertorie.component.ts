@@ -10,16 +10,16 @@ import { Router } from '@angular/router';
 })
 export class ListRepertorieComponent implements OnInit {
 
-  songs: ISong[] = [];
-  currentSong:ISong = <ISong>{};
-  currentIndex = -1;
-  searchTitle = '';
+  //Vars
+  songsList: ISong[] = [];
+  searchName = '';
   
+  //Constructor
   constructor(
-    private reperService: RepertorieService,
-    private router: Router
+    private reperService: RepertorieService
     ) { }
 
+  //Methods
   ngOnInit(): void {
     this.getAllSongs();
   }
@@ -27,35 +27,36 @@ export class ListRepertorieComponent implements OnInit {
   // Get list
   getAllSongs(): void {
     this.reperService.list().subscribe(
-        (songs: any) => {
-          this.songs = songs;
+        (songs) => {
+          this.songsList = songs;
         },
-        (error: any) => {
+        (error) => {
           console.log(error);
         });
   }
 
   // Search items
-  searchByTitle(): void {
-    this.reperService.filterByTitle(this.searchTitle)
+  searchByName(): void {
+    this.reperService.filterByName(this.searchName)
       .subscribe(
         songs => {
-          this.songs = songs;
+          this.songsList = songs;
         },
         error => {
           console.log(error);
         });
   }
 
+  // Clear filter by name and refresh
   clearList(){
-    this.searchTitle ='';
+    this.searchName ='';
     this.ngOnInit();
   }
+
   // Active item
   activeSong(song:ISong){
 
     song.active = true;
-    console.log(song);
     this.reperService.filterByActive(true).subscribe(
       response =>{
         response.forEach(data=>{
