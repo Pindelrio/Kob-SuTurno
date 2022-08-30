@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"config", component: ConfigComponent}
 ]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

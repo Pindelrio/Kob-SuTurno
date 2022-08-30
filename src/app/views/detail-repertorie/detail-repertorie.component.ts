@@ -42,6 +42,7 @@ export class DetailRepertorieComponent implements OnInit {
         response => {
           console.log(response);
           this.message = 'The song was updated!';
+          this.router.navigate(['/list']);
         },
         error => {
           console.log(error);

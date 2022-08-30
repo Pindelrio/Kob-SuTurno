@@ -85,4 +85,41 @@ export class ListRepertorieComponent implements OnInit {
       });
     
   }
+
+  deleteAllComments(){
+    
+    this.reperService.list().subscribe(
+      (songs) => {
+        this.songsList = songs;
+        songs.forEach((data:any)=>{
+          data.comments = '';
+                  this.reperService.update(data.id, data).subscribe
+                  ({
+                      error: (e) => console.error(e),
+                      complete: () =>{
+                        console.info('complete');
+                      }
+                  });
+        })
+      },
+      (error) => {
+        console.log(error);
+      });
+
+    // this.reperService.list().subscribe(
+    //   response =>{
+    //     response.forEach(data:=>{
+          
+    //         //Erase all comments
+    //         data.comments = '';
+    //         this.reperService.update(data.id, data).subscribe
+    //         ({
+    //             error: (e) => console.error(e),
+    //             complete: () =>{
+    //               console.info('complete');
+    //             }
+    //         });
+    //       })
+    //   });
+  }
 }
