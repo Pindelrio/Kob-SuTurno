@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ISong } from 'src/app/Models/song';
-import { RepertorieService } from 'src/app/Services/repertorie.service';
+import { ISong } from 'KobSuTurno/app/Models/song';
+import { RepertorieService } from 'KobSuTurno/app/Services/repertorie.service';
 
 @Component({
   selector: 'app-detail-repertorie',

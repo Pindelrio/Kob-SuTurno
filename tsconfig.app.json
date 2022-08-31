@@ -6,10 +6,10 @@
     "types": []
   },
   "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
+    "KobSuTurno/main.ts",
+    "KobSuTurno/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "KobSuTurno/**/*.d.ts"
   ]
 }

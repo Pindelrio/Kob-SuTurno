@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RepertorieService } from 'src/app/Services/repertorie.service';
+import { RepertorieService } from 'KobSuTurno/app/Services/repertorie.service';
 
 @Component({
   selector: 'app-config',
